@@ -1,6 +1,6 @@
+import { RouterProvider } from 'react-router/dom'
 import Layout from '@/Layout'
-import { RouterProvider } from "react-router/dom";
-import { router } from './routers'
+import router from './routers'
 
 function App() {
   return (

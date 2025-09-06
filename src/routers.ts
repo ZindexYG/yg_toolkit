@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router";
-import User from './Page/Inbox'
 import Home from './Page/Home'
+import User from './Page/Inbox'
 
-export const router = createBrowserRouter([
+export const router = [
   {
     path: "/",
     children: [
@@ -10,6 +10,7 @@ export const router = createBrowserRouter([
       { path: "Inbox", Component: User },
     ],
   },
-]);
+];
 
-export default router
+
+export default createBrowserRouter(router)

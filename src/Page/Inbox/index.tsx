@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Index = () => {
+function Index() {
   return (
     <div>User Index</div>
   )
