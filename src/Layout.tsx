@@ -1,12 +1,10 @@
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 import { AppSidebar } from '@/components/app-sidebar'
 import {
   Breadcrumb,
   BreadcrumbItem,
-  BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbPage,
-  BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb'
 
 import { Separator } from '@/components/ui/separator'
@@ -16,7 +14,13 @@ import {
   SidebarTrigger,
 } from '@/components/ui/sidebar'
 
+import { findRouteByPath } from '@/routers'
+
 export function Layout() {
+  const location = useLocation() as unknown as { pathname: string }
+  const matched = findRouteByPath(location.pathname)
+  const pageTitle = matched?.title ?? location.pathname
+
   return (
     <SidebarProvider style={
       {
@@ -34,23 +38,14 @@ export function Layout() {
           />
           <Breadcrumb>
             <BreadcrumbList>
-              <BreadcrumbItem className="hidden md:block">
-                <BreadcrumbLink href="#">
-                  Building Your Application
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator className="hidden md:block" />
               <BreadcrumbItem>
-                <BreadcrumbPage>Data Fetching</BreadcrumbPage>
+                <BreadcrumbPage>{pageTitle}</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
         </header>
         <Outlet />
       </SidebarInset>
-      {/* <main>
-        <SidebarTrigger />
-      </main> */}
     </SidebarProvider>
   )
 }
