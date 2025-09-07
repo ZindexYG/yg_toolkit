@@ -44,7 +44,10 @@ export function Layout() {
             </BreadcrumbList>
           </Breadcrumb>
         </header>
-        <Outlet />
+        <div className="flex flex-1 flex-col gap-4 p-4 bg-muted/50 min-h-[100vh]  rounded-xl md:min-h-min">
+
+          <Outlet />
+        </div>
       </SidebarInset>
     </SidebarProvider>
   )

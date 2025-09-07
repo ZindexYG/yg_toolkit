@@ -1,8 +1,8 @@
 import { Home as HomeIcon, Inbox as InboxIcon } from 'lucide-react'
 import { createBrowserRouter } from "react-router";
 import Layout from './Layout'
+import Generator from './Page/Generator'
 import Home from './Page/Home'
-import User from './Page/Inbox'
 
 export interface AppRoute {
   title: string
@@ -15,7 +15,7 @@ export interface AppRoute {
 // 统一路由数据源（供 router、sidebar、breadcrumb 共用）
 export const appRoutes: AppRoute[] = [
   { title: 'Home', path: '/', Component: Home, icon: HomeIcon, index: true },
-  { title: 'Inbox', path: '/inbox', Component: User, icon: InboxIcon },
+  { title: 'Generator', path: '/generator', Component: Generator, icon: InboxIcon },
 ]
 
 // 辅助：根据 pathname 查找匹配的 route（优先精确匹配）
