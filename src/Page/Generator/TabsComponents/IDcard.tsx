@@ -236,7 +236,7 @@ function IDcard() {
                           <Button
                             variant="outline"
                             className={cn(
-                              'w-[240px] pl-3 text-left font-normal',
+                              'w-full pl-3 text-left font-normal',
                               !field.value && 'text-muted-foreground',
                             )}
                           >
@@ -245,7 +245,7 @@ function IDcard() {
                                   field.value && format(field.value, 'yyyy-MM-dd')
                                 )
                               : (
-                                  <span>Pick a date</span>
+                                  <span>选择日期</span>
                                 )}
                             <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                           </Button>
