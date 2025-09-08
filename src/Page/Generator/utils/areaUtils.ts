@@ -1,5 +1,7 @@
 import areaData from './area.json';
 
+const area: Record<string, any> = areaData as any;
+
 /**
  * 表示地区项目（省份、城市或区县）的接口
  */
@@ -17,8 +19,8 @@ export interface AreaItem {
  */
 export function getProvinces(): AreaItem[] {
   const provinces: AreaItem[] = [];
-  for (const provinceCode in areaData) {
-    const provinceName = Object.keys(areaData[provinceCode])[0];
+  for (const provinceCode in area) {
+    const provinceName = Object.keys(area[provinceCode])[0];
     provinces.push({
       code: provinceCode,
       name: provinceName,
@@ -37,9 +39,9 @@ export function getCities(provinceCode: string): AreaItem[] {
   if (!provinceCode)
     return [];
 
-  const provinceName = Object.keys(areaData[provinceCode])[0];
+  const provinceName = Object.keys(area[provinceCode])[0];
   const cities: AreaItem[] = [];
-  const citiesData = areaData[provinceCode][provinceName];
+  const citiesData = area[provinceCode][provinceName];
 
   for (const cityCode in citiesData) {
     const cityName = Object.keys(citiesData[cityCode])[0];
@@ -63,9 +65,9 @@ export function getDistricts(provinceCode: string, cityCode: string): AreaItem[]
   if (!provinceCode || !cityCode)
     return [];
 
-  const provinceName = Object.keys(areaData[provinceCode])[0];
-  const cityName = Object.keys(areaData[provinceCode][provinceName][cityCode])[0];
-  const districtsData = areaData[provinceCode][provinceName][cityCode][cityName];
+  const provinceName = Object.keys(area[provinceCode])[0];
+  const cityName = Object.keys(area[provinceCode][provinceName][cityCode])[0];
+  const districtsData = area[provinceCode][provinceName][cityCode][cityName];
 
   const districts: AreaItem[] = [];
   for (const districtCode in districtsData) {
