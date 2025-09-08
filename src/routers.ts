@@ -14,8 +14,9 @@ export interface AppRoute {
 
 // 统一路由数据源（供 router、sidebar、breadcrumb 共用）
 export const appRoutes: AppRoute[] = [
-  { title: 'Home', path: '/', Component: Home, icon: HomeIcon, index: true },
-  { title: 'Generator', path: '/generator', Component: Generator, icon: InboxIcon },
+  // { title: 'Home', path: '/', Component: Home, icon: HomeIcon, index: true },
+  { title: '编号生成器', path: '/', Component: Generator, icon: InboxIcon },
+  // { title: '编号生成器', path: '/generator', Component: Generator, icon: InboxIcon },
 ]
 
 // 辅助：根据 pathname 查找匹配的 route（优先精确匹配）
