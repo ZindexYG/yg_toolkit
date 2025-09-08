@@ -232,9 +232,11 @@ function CreditCode() {
       <Card className="p-6">
         <Toaster position="top-center" />
         <div className="w-96 m-auto">
+
+          <Button className="w-full" onClick={generateCreditCode}>生成统一社会信用代码</Button>
+
           {creditCode && (
             <div className="mb-4 text-center">
-              <div className="text-sm text-muted-foreground">生成的统一社会信用代码</div>
               <div className="flex justify-center items-center gap-2 mt-2">
                 <div className="font-mono">{creditCode}</div>
                 <Button
@@ -249,7 +251,6 @@ function CreditCode() {
               </div>
             </div>
           )}
-          <Button className="w-full" onClick={generateCreditCode}>生成统一社会信用代码</Button>
         </div>
       </Card>
     </TabsContent>

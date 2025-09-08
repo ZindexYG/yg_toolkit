@@ -39,9 +39,12 @@ function PhoneNo() {
       <Card className="p-6">
         <Toaster position="top-center" />
         <div className="w-96 m-auto">
+
+          <Button className="w-full" onClick={generatePhoneNo}>生成手机号码</Button>
+
           {phoneNo && (
             <div className="mb-4 text-center">
-              <div className="text-sm text-muted-foreground">生成手机号码</div>
+              {/* <div className="text-sm text-muted-foreground">生成手机号码</div> */}
               <div className="flex justify-center items-center gap-2 mt-2">
                 <div className="font-mono">{phoneNo}</div>
                 <Button
@@ -56,7 +59,6 @@ function PhoneNo() {
               </div>
             </div>
           )}
-          <Button className="w-full" onClick={generatePhoneNo}>生成手机号码</Button>
         </div>
       </Card>
     </TabsContent>

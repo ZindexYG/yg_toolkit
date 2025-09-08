@@ -351,7 +351,7 @@ function IDcard() {
                 )}
               />
 
-              <Button type="submit">生成</Button>
+              <Button className='w-full' type="submit">生成</Button>
             </form>
           </Form>
         </div>

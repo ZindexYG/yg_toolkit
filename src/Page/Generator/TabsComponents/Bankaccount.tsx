@@ -85,10 +85,12 @@ function Bankaccount() {
       <Card className="p-6">
         <Toaster position="top-center" />
         <div className="w-96 m-auto">
+
+          <Button className="w-full" onClick={generateBankAccount}>生成银行卡号</Button>
+
           {/* 显示已生成的银行卡号并支持复制 */}
           {bankAccount && (
             <div className="mb-4 text-center">
-              <div className="text-sm text-muted-foreground">生成的银行卡号</div>
               <div className="flex justify-center items-center gap-2 mt-2">
                 <div className="font-mono">{bankAccount}</div>
                 <Button
@@ -103,7 +105,6 @@ function Bankaccount() {
               </div>
             </div>
           )}
-          <Button className="w-full" onClick={generateBankAccount}>生成银行卡号</Button>
         </div>
       </Card>
     </TabsContent>

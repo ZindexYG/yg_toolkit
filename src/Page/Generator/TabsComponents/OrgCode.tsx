@@ -2,7 +2,10 @@ import { Clipboard } from 'lucide-react'
 import { useState } from 'react'
 import { toast } from 'sonner'
 import { Button } from '@/components/ui/button'
-import { Card } from '@/components/ui/card'
+import {
+  Card,
+  CardHeader
+ } from '@/components/ui/card'
 import { Toaster } from '@/components/ui/sonner'
 import { TabsContent } from '@/components/ui/tabs'
 
@@ -37,36 +40,36 @@ function OrgCode() {
         <Toaster position="top-center" />
         <div className="w-96 m-auto">
           {/* <Button className="w-full">生成组织机构代码</Button> */}
-          <div className="w-96 m-auto">
-            {/* 组织机构代码输入框，绑定状态便于显示和复制 */}
-            {
-              orgCode && (
-                <div className="mb-4 text-center">
-                  <div className="text-sm text-muted-foreground">生成的组织机构代码</div>
-                  <div className="flex justify-center items-center gap-2 mt-2">
-                    <div className="font-mono">
-                      {orgCode}
-                    </div>
-                    <Button
-                      type="button"
-                      variant="outline"
-                      onClick={() => {
-                        navigator.clipboard.writeText(orgCode)
-                        // 使用 toast.success 显示成功消息
-                        toast.success('已复制到剪贴板')
-                      }}
-                    >
-                      <Clipboard />
-                    </Button>
+
+          {/* 触发生成逻辑 */}
+          <Button className="w-full" onClick={generateOrgCode}>
+            生成组织机构代码
+          </Button>
+
+          {/* 组织机构代码输入框，绑定状态便于显示和复制 */}
+          {
+            orgCode && (
+              <div className="mb-4 text-center">
+                {/* <div className="text-sm text-muted-foreground">生成的组织机构代码</div> */}
+                <div className="flex justify-center items-center gap-2 mt-2">
+                  <div className="font-mono">
+                    {orgCode}
                   </div>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() => {
+                      navigator.clipboard.writeText(orgCode)
+                      // 使用 toast.success 显示成功消息
+                      toast.success('已复制到剪贴板')
+                    }}
+                  >
+                    <Clipboard />
+                  </Button>
                 </div>
-              )
-            }
-            {/* 触发生成逻辑 */}
-            <Button className="w-full" onClick={generateOrgCode}>
-              生成组织机构代码
-            </Button>
-          </div>
+              </div>
+            )
+          }
         </div>
       </Card>
     </TabsContent>
