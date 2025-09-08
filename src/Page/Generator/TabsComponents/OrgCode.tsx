@@ -1,3 +1,4 @@
+import { Clipboard } from 'lucide-react'
 import { useState } from 'react'
 import { toast } from 'sonner'
 import { Button } from '@/components/ui/button'
@@ -40,10 +41,10 @@ function OrgCode() {
             {/* 组织机构代码输入框，绑定状态便于显示和复制 */}
             {
               orgCode && (
-                <Card className="mb-4 gap-1 p-4 text-center">
+                <div className="mb-4 text-center">
                   <div className="text-sm text-muted-foreground">生成的组织机构代码</div>
-                  <div className="flex justify-center items-center gap-2 text-lg font-mono">
-                    <div>
+                  <div className="flex justify-center items-center gap-2 mt-2">
+                    <div className="font-mono">
                       {orgCode}
                     </div>
                     <Button
@@ -55,10 +56,10 @@ function OrgCode() {
                         toast.success('已复制到剪贴板')
                       }}
                     >
-                      复制
+                      <Clipboard />
                     </Button>
                   </div>
-                </Card>
+                </div>
               )
             }
             {/* 触发生成逻辑 */}

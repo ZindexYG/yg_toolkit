@@ -1,3 +1,4 @@
+import { Clipboard } from 'lucide-react'
 import { useState } from 'react'
 import { toast } from 'sonner'
 import { Button } from '@/components/ui/button'
@@ -243,7 +244,7 @@ function CreditCode() {
                     toast.success('已复制到剪贴板')
                   }}
                 >
-                  复制
+                  <Clipboard />
                 </Button>
               </div>
             </div>
