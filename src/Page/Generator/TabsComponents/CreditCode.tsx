@@ -231,7 +231,7 @@ function CreditCode() {
     <TabsContent value="creditCode">
       <Card className="p-6">
         <Toaster position="top-center" />
-        <div className="w-96 m-auto">
+        <div className="min-w-36 w-full max-w-96 m-auto">
 
           <Button className="w-full" onClick={generateCreditCode}>生成统一社会信用代码</Button>
 

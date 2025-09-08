@@ -144,7 +144,7 @@ function IDcard() {
   return (
     <TabsContent value="iDcard">
       <Card className="p-6">
-        <div className="w-96 m-auto">
+        <div className="min-w-36 w-full max-w-96 m-auto">
 
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">

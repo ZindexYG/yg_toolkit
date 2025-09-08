@@ -38,7 +38,7 @@ function PhoneNo() {
     <TabsContent value="phoneNo">
       <Card className="p-6">
         <Toaster position="top-center" />
-        <div className="w-96 m-auto">
+        <div className="min-w-36 w-full max-w-96 m-auto">
 
           <Button className="w-full" onClick={generatePhoneNo}>生成手机号码</Button>
 

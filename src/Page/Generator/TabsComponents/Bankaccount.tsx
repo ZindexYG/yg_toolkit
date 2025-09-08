@@ -84,7 +84,7 @@ function Bankaccount() {
     <TabsContent value="bankaccount">
       <Card className="p-6">
         <Toaster position="top-center" />
-        <div className="w-96 m-auto">
+        <div className="min-w-36 w-full max-w-96 m-auto">
 
           <Button className="w-full" onClick={generateBankAccount}>生成银行卡号</Button>
 

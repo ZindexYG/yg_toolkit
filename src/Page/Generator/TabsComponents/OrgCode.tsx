@@ -38,7 +38,7 @@ function OrgCode() {
     <TabsContent value="orgCode">
       <Card className="p-6">
         <Toaster position="top-center" />
-        <div className="w-96 m-auto">
+        <div className="min-w-36 w-full max-w-96  m-auto">
           {/* <Button className="w-full">生成组织机构代码</Button> */}
 
           {/* 触发生成逻辑 */}

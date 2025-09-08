@@ -37,11 +37,11 @@ export function Generator() {
   return (
     <div>
       <Tabs defaultValue="iDcard">
-        <TabsList className="w-full flex justify-around">
+        <TabsList className="w-full sm:h-12 h-24 flex flex-wrap justify-around">
           {/* <TabsTrigger value="account">Account</TabsTrigger>
           <TabsTrigger value="password">Password</TabsTrigger> */}
           {TabsDates.map(item => (
-            <TabsTrigger className="flex`" value={item.value} key={item.value}>{item.title}</TabsTrigger>
+            <TabsTrigger className="sm:h-full h-9" value={item.value} key={item.value}>{item.title}</TabsTrigger>
           ))}
         </TabsList>
         <Bankaccount />
