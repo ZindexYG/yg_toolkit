@@ -1,5 +1,3 @@
-import { Calendar, Home, Inbox, Search, Settings } from 'lucide-react'
-
 import { Link } from 'react-router-dom'
 
 import Logo from '@/assets/tinker_Logo.svg'
@@ -9,12 +7,10 @@ import {
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarRail,
 } from '@/components/ui/sidebar'
 
 import { appRoutes } from '@/routers'

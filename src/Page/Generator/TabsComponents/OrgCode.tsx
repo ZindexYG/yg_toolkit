@@ -4,8 +4,8 @@ import { toast } from 'sonner'
 import { Button } from '@/components/ui/button'
 import {
   Card,
-  CardHeader
- } from '@/components/ui/card'
+
+} from '@/components/ui/card'
 import { Toaster } from '@/components/ui/sonner'
 import { TabsContent } from '@/components/ui/tabs'
 
