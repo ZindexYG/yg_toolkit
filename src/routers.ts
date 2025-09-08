@@ -1,8 +1,8 @@
-import { Home as HomeIcon, Inbox as InboxIcon } from 'lucide-react'
+import { Inbox as InboxIcon } from 'lucide-react'
 import { createBrowserRouter } from "react-router";
 import Layout from './Layout'
 import Generator from './Page/Generator'
-import Home from './Page/Home'
+// import Home from './Page/Home'
 
 export interface AppRoute {
   title: string
