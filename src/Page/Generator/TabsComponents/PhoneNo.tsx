@@ -30,8 +30,8 @@ function PhoneNo() {
     const full = `${prefix}${num}`
     setPhoneNo(full)
     // 可选提示，若项目使用 sonner toast 可显示
-    if (typeof toast === 'function')
-      toast.success('已生成手机号')
+    // if (typeof toast === 'function')
+    //   toast.success('已生成手机号')
   }
 
   return (

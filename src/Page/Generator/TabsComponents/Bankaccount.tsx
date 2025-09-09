@@ -76,8 +76,8 @@ function Bankaccount() {
     // 最终卡号 = 前置 + 校验位
     const full = `${first15Or18Num}${luhm}`
     setBankAccount(full)
-    if (typeof toast === 'function')
-      toast.success('已生成银行卡号')
+    // if (typeof toast === 'function')
+    //   toast.success('已生成银行卡号')
   }
 
   return (

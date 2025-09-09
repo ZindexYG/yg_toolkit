@@ -224,7 +224,7 @@ function CreditCode() {
 
     const fullCode = `${code17}${last}`
     setCreditCode(fullCode)
-    toast.success('已生成统一社会信用代码')
+    // toast.success('已生成统一社会信用代码')
   }
 
   return (
