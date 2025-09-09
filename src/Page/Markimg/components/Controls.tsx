@@ -7,8 +7,6 @@ import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { MarkimgContext } from '../index'
 
-// ['text', 'color', 'alpha', 'angle', 'space', 'size', 'format'];
-// 颜色、透明度、角度、间距、大小、格式
 function Controls() {
   // 定义表单字段类型
   interface FormValues {

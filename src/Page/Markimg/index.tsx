@@ -1,5 +1,4 @@
-import type { Context, Provider } from 'react'
-import { createContext, useContext, useMemo, useState } from 'react'
+import { createContext, useMemo, useState } from 'react'
 import Controls from './components/Controls'
 import Preview from './components/Preview'
 
