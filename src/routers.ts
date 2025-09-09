@@ -1,7 +1,8 @@
-import { Inbox as InboxIcon } from 'lucide-react'
+import { ImagePlus, Inbox as InboxIcon } from 'lucide-react'
 import { createBrowserRouter } from "react-router";
 import Layout from './Layout'
 import Generator from './Page/Generator'
+import Markimg from './Page/Markimg'
 // import Home from './Page/Home'
 
 export interface AppRoute {
@@ -15,8 +16,9 @@ export interface AppRoute {
 // 统一路由数据源（供 router、sidebar、breadcrumb 共用）
 export const appRoutes: AppRoute[] = [
   // { title: 'Home', path: '/', Component: Home, icon: HomeIcon, index: true },
-  { title: '编号生成器', path: '/', Component: Generator, icon: InboxIcon },
   // { title: '编号生成器', path: '/generator', Component: Generator, icon: InboxIcon },
+  { title: '编号生成器', path: '/', Component: Generator, icon: InboxIcon },
+  { title: '图片水印工具', path: '/Markimg', Component: Markimg, icon: ImagePlus },
 ]
 
 // 辅助：根据 pathname 查找匹配的 route（优先精确匹配）
