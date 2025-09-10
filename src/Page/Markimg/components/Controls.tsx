@@ -54,10 +54,10 @@ function Controls() {
   }, [watchedValues])
 
   return (
-    <Card className="p-4 h-full">
+    <Card className="h-full">
       <Form {...form}>
-        <form className="space-y-4">
-          <CardHeader>选择本地图片</CardHeader>
+        <form>
+          <CardHeader className="font-medium">选择本地图片</CardHeader>
           <CardContent className="relative">
 
             <Input
@@ -77,7 +77,7 @@ function Controls() {
               <p className="text-gray-400 text-sm mt-1">支持 PNG、JPG、GIF - 本地处理</p>
             </div>
           </CardContent>
-          <CardHeader>水印文字</CardHeader>
+          <CardHeader className="font-medium">水印文字</CardHeader>
           <CardContent className="grid grid-cols-2 gap-4">
             {/* 水印文字 */}
 

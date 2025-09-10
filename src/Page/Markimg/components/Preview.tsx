@@ -102,7 +102,7 @@ function Preview() {
     // 计算文字尺寸和分布
     const width = ctx.measureText(text).width
     const step = Math.sqrt(canvas.width ** 2 + canvas.height ** 2)
-    const margin = ctx.measureText('-').width
+    const margin = ctx.measureText('国').width
     // const space = watched.size || 2
 
     // 计算需要绘制的行列数
@@ -155,8 +155,13 @@ function Preview() {
   }, [canvas, image, watched?.text, watched?.color, watched?.alpha, watched?.size, watched?.angle, watched?.space, watched?.format])
 
   return (
-    <Card className="h-full">
-      <CardHeader className="mb-2 font-medium">预览</CardHeader>
+    <Card className="h-full gap-2">
+      <CardHeader className="font-medium flex items-end">
+        <div>
+          预览
+        </div>
+        <div className="text-center text-gray-500 text-sm">点击带水印的图片即可下载</div>
+      </CardHeader>
       <CardContent>
         <div
           ref={containerRef}
@@ -167,12 +172,11 @@ function Preview() {
           <canvas
             ref={canvasRef}
             style={{
-              maxWidth: '100%',
-              maxHeight: '100%',
+              width: '100%',
+              height: 'auto',
               display: image ? 'block' : 'none',
             }}
           />
-
           {!image && (
             <div className="text-center text-gray-500">
               <ImageIcon className="w-16 h-16 mx-auto mb-4 text-gray-300" />
@@ -181,7 +185,6 @@ function Preview() {
             </div>
           )}
         </div>
-        <div className="text-center text-gray-500 text-sm mt-4">点击带水印的图片即可下载</div>
       </CardContent>
     </Card>
   )
