@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 interface Props {
   year: string
@@ -15,9 +15,6 @@ function buildImageUrl(year: string, time: string) {
 
 /**
  * OneWayCalendar 组件
- * - 使用 fetch 获取图片资源（客户端）
- * - 获取后转换为 blob，并通过 object URL 加载到 <img>
- * - 简洁、易读、函数式设计：URL 构造为纯函数，副作用集中在 useEffect
  */
 export function OneWayCalendar({ year, time, alt = 'calendar' }: Props) {
   const [src, setSrc] = useState<string | null>(null)
