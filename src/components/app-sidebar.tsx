@@ -2,9 +2,12 @@ import { Link } from 'react-router-dom'
 
 import Logo from '@/assets/tinker_Logo.svg'
 
+import { OneWayCalendar } from '@/components/oneWay-calendar'
+
 import {
   Sidebar,
   SidebarContent,
+  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarHeader,
@@ -16,6 +19,10 @@ import {
 import { appRoutes } from '@/routers'
 
 export function AppSidebar() {
+  const now = new Date()
+  const year = String(now.getFullYear())
+  const time = `${String(now.getMonth() + 1).padStart(2, '0')}${String(now.getDate()).padStart(2, '0')}`
+
   return (
     <Sidebar variant="floating">
       <SidebarHeader>
@@ -55,6 +62,9 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+      <SidebarFooter>
+        <OneWayCalendar year={year} time={time} />
+      </SidebarFooter>
     </Sidebar>
   )
 }
