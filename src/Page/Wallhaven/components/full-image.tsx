@@ -23,7 +23,7 @@ export const FullImage: React.FC<FullImageProps> = ({
   const pathPart = id.substring(0, 2).toLowerCase()
 
   // 构建全尺寸图片URL
-  const fullImageUrl = `https://w.wallhaven.cc/full/${pathPart}/wallhaven-${id}.jpg`
+  const fullImageUrl = `https://w.wallhaven.cc/full/${pathPart}/${fullName}`
 
   return (
     <div
@@ -36,7 +36,7 @@ export const FullImage: React.FC<FullImageProps> = ({
       >
         <img
           src={fullImageUrl}
-          alt={`全尺寸图片 ${id}`}
+          alt={`${fullName}`}
           className="h-auto max-h-[90vh] w-auto max-w-[90vw] object-contain"
         />
         <button
