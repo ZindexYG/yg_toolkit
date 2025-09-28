@@ -10,10 +10,9 @@ export const Wallhaven: React.FC = () => {
 
   // 加载JSON数据
   useEffect(() => {
-    setData(wallhaven_structure as WallhavenStructure)
+    const reversedDirectories = [...wallhaven_structure.directories].reverse()
+    setData({ ...wallhaven_structure, directories: reversedDirectories })
     setLoading(false)
-    return () => {
-    }
   }, [])
 
   // 加载状态
