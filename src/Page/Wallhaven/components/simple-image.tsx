@@ -27,9 +27,7 @@ export const SimpleImage: React.FC<SimpleImageProps> = ({
 
   const pageUrl = `https://wallhaven.cc/w/${id}`
 
-  // https://w.wallhaven.cc/full/5g/wallhaven-5gjz33.png
   const fullUrl = `https://w.wallhaven.cc/full/${pathPart}/${fullName}`
-  // https://w.wallhaven.cc/full/5g/wallhaven-5gjz33.png
 
   const handleDowload = async (e?: React.MouseEvent) => {
     e?.stopPropagation()
