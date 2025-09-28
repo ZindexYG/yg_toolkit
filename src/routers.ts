@@ -1,7 +1,7 @@
-import { Calendar as IconCalendar, ImagePlus, Inbox as InboxIcon, ImageIcon } from 'lucide-react'
+import { ImageIcon, ImagePlus, Inbox as InboxIcon } from 'lucide-react'
 import { createBrowserRouter } from "react-router";
 import Layout from './Layout'
-import Calendar from './Page/Calendar'
+// import Calendar from './Page/Calendar'
 import Generator from './Page/Generator'
 import Markimg from './Page/Markimg'
 import Wallhaven from './Page/Wallhaven'
@@ -21,7 +21,7 @@ export const appRoutes: AppRoute[] = [
   // { title: '编号生成器', path: '/generator', Component: Generator, icon: InboxIcon },
   { title: '编号生成器', path: '/', Component: Generator, icon: InboxIcon },
   { title: '图片水印工具', path: '/Markimg', Component: Markimg, icon: ImagePlus },
-  { title: '日历', path: '/Calendar', Component: Calendar, icon: IconCalendar },
+  // { title: '日历', path: '/Calendar', Component: Calendar, icon: IconCalendar },
   { title: 'Wallhaven', path: '/Wallhaven', Component: Wallhaven, icon: ImageIcon },
 ]
 
