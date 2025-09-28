@@ -27,8 +27,9 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({
       <h2 className="mb-2 text-lg font-semibold">{formattedDate}</h2>
 
       {/* 横向滚动的图片容器 */}
-      <div className="flex w-full overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-gray-300">
-        <div className="flex w-96 gap-4">
+      <div className="max-w-[calc(100%_-_var(--sidebar-width))] m-auto">
+
+        <div className="flex flex-wrap gap-4">
           {images.map((image, index) => (
             <SimpleImage
               key={index}
