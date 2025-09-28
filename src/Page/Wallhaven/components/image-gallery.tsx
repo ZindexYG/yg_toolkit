@@ -28,7 +28,7 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({
 
       {/* 横向滚动的图片容器 */}
       <div className="flex w-full overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-gray-300">
-        <div className="flex gap-4">
+        <div className="flex w-96 gap-4">
           {images.map((image, index) => (
             <SimpleImage
               key={index}
