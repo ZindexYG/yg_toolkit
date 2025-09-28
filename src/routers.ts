@@ -1,8 +1,10 @@
-import { ImagePlus, Inbox as InboxIcon } from 'lucide-react'
+import { Calendar as IconCalendar, ImagePlus, Inbox as InboxIcon, ImageIcon } from 'lucide-react'
 import { createBrowserRouter } from "react-router";
 import Layout from './Layout'
+import Calendar from './Page/Calendar'
 import Generator from './Page/Generator'
 import Markimg from './Page/Markimg'
+import Wallhaven from './Page/Wallhaven'
 // import Home from './Page/Home'
 
 export interface AppRoute {
@@ -19,6 +21,8 @@ export const appRoutes: AppRoute[] = [
   // { title: '编号生成器', path: '/generator', Component: Generator, icon: InboxIcon },
   { title: '编号生成器', path: '/', Component: Generator, icon: InboxIcon },
   { title: '图片水印工具', path: '/Markimg', Component: Markimg, icon: ImagePlus },
+  { title: '日历', path: '/Calendar', Component: Calendar, icon: IconCalendar },
+  { title: 'Wallhaven', path: '/Wallhaven', Component: Wallhaven, icon: ImageIcon },
 ]
 
 // 辅助：根据 pathname 查找匹配的 route（优先精确匹配）
