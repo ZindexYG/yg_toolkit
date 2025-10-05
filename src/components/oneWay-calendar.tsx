@@ -68,8 +68,8 @@ export function OneWayCalendar({ year, time, alt = 'calendar' }: Props) {
   if (error) {
     return (
       <div>
-        加载失败：
-        {error}
+        {/* 加载失败：
+        {error} */}
       </div>
     )
   }
