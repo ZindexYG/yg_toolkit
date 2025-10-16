@@ -31,6 +31,8 @@ function iso8601({ now }: { now: Date | null }) {
 
   // 获取当前 iso 8601 字符串
   const getCurrentTimestamp = () => {
+    if (!now)
+      return
     // setTimestamp(Math.floor(new Date().getTime() / 1000))
     const currentTime = now.toISOString()
     // 将数字转换为字符串以匹配 inputTimestamp 的类型（string）

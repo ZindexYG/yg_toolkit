@@ -36,6 +36,8 @@ function unix({ now }: { now: Date | null }) {
 
   // 获取当前时间戳
   const getCurrentTimestamp = () => {
+    if (!now)
+      return
     // setTimestamp(Math.floor(new Date().getTime() / 1000))
     const currentTime = now.getTime()
     // 将数字转换为字符串以匹配 inputTimestamp 的类型（string）
