@@ -1,5 +1,5 @@
 import { ChevronDownIcon } from 'lucide-react'
-import React, { useCallback, useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Calendar } from '@/components/ui/calendar'
 import { Input } from '@/components/ui/input'
@@ -15,7 +15,7 @@ const LocaleDateOption = {
   day: '2-digit',
 } as const
 
-function iso8601({ now }: { now: Date }) {
+function iso8601({ now }: { now: Date | null }) {
   // 输入的 iso 8601 字符串
   const [inputISO8601, setInputISO8601] = useState('')
 

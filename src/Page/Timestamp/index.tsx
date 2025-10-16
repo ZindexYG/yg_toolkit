@@ -8,7 +8,7 @@ import {
   TabsTrigger,
 } from '@/components/ui/tabs'
 import iso8601 from './TabsComponents/iso8601'
-import rfc2822 from './TabsComponents/rfc2822'
+// import rfc2822 from './TabsComponents/rfc2822'
 import unix from './TabsComponents/unix'
 
 const TabsDates = [

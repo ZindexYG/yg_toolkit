@@ -16,7 +16,7 @@ const LocaleDateOption = {
   day: '2-digit',
 } as const
 
-function unix({ now }: { now: Date }) {
+function unix({ now }: { now: Date | null }) {
   // 时间单位
   const [timeUnit, setTimeUnit] = useState<'seconds' | 'milliseconds'>('seconds')
   // 获取当前时间戳
