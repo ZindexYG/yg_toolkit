@@ -10,9 +10,6 @@ import {
 } from '@/components/ui/popover'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 
-// 需求如下
-// 1. 支持格式互转，时间转换为时间戳，时间戳转换为标准时间 (精确到秒)
-
 const LocaleDateOption = {
   year: 'numeric',
   month: '2-digit',
@@ -195,7 +192,6 @@ function unix({ now }: { now: Date }) {
         <Input value={outputTimestamp} readOnly />
       </div>
 
-      {/* 输出 */}
     </div>
   )
 }
