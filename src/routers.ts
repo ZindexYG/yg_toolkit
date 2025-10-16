@@ -4,8 +4,8 @@ import Layout from './Layout'
 import Calendar from './Page/Calendar'
 import Generator from './Page/Generator'
 import Markimg from './Page/Markimg'
-import Wallhaven from './Page/Wallhaven'
 import Timestamp from './Page/Timestamp'
+import Wallhaven from './Page/Wallhaven'
 // import Home from './Page/Home'
 
 export interface AppRoute {
@@ -24,7 +24,7 @@ export const appRoutes: AppRoute[] = [
   { title: '图片水印工具', path: '/Markimg', Component: Markimg, icon: ImagePlus },
   { title: '节假日日历', path: '/Calendar', Component: Calendar, icon: IconCalendar },
   { title: 'Wallhaven', path: '/Wallhaven', Component: Wallhaven, icon: ImageIcon },
-  { title: '时间互转', path: '/Timestamp', Component: Timestamp, icon: Watch },
+  { title: '时间格式互转', path: '/Timestamp', Component: Timestamp, icon: Watch },
 ]
 
 // 辅助：根据 pathname 查找匹配的 route（优先精确匹配）
