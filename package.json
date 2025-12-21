@@ -3,9 +3,13 @@
   "type": "module",
   "version": "0.0.0",
   "private": true,
+  "packageManager": "pnpm@8.0.0",
   "scripts": {
     "dev": "vite",
+    "dev:next": "next dev",
     "build": "tsc -b && vite build",
+    "build:next": "next build",
+    "start:next": "next start",
     "lint": "eslint .",
     "preview": "vite preview"
   },
