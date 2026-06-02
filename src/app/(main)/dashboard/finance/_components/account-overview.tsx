@@ -1,7 +1,7 @@
 "use client";
 
 import { Plus } from "lucide-react";
-import { siApple, siFigma, siOpenai, siPaypal, siVercel } from "simple-icons";
+import { siAnthropic, siApple, siFigma, siPaypal, siVercel } from "simple-icons";
 
 import { SimpleIcon } from "@/components/simple-icon";
 import { Button } from "@/components/ui/button";
@@ -37,9 +37,9 @@ const recentPayments = [
   },
   {
     id: 2,
-    icon: siOpenai,
-    title: "ChatGPT Subscription",
-    subtitle: "OpenAI monthly subscription",
+    icon: siAnthropic,
+    title: "Claude Subscription",
+    subtitle: "Anthropic monthly subscription",
     type: "debit",
     amount: 20,
     date: "Jul 7",
