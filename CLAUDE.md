@@ -12,8 +12,8 @@ Package manager is **pnpm** (locked at 10.25.0 in `package.json`). Do not switch
 - `pnpm check` / `pnpm check:fix` — Biome lint + format check (write fixes with `:fix`)
 - `pnpm lint` / `pnpm format` — lint-only / format-only via Biome
 - `pnpm generate:presets` — regenerate `src/lib/preferences/theme.ts` from CSS files in `src/styles/presets/`. Required after adding a new preset; otherwise it won't appear in the theme switcher. Also wired to the Husky pre-push hook.
-
-There is no test runner configured in this repo.
+- `pnpm test` / `pnpm test:watch` — Vitest unit tests (jsdom, files matched by `tests/unit/**/*.test.{ts,tsx}`, setup in `tests/unit/setup.ts`). Run a single file with `pnpm test path/to/file.test.ts` or a single case with `-t "name"`.
+- `pnpm test:e2e` — Playwright (chromium only). `webServer` boots `pnpm dev` automatically — don't pre-start it. Specs live in `tests/e2e/`.
 
 **Linting/formatting**: Biome (not ESLint/Prettier). `src/components/ui` is explicitly excluded from Biome (it's shadcn-generated). Pre-commit runs `biome check --write --no-errors-on-unmatched` via `lint-staged` + Husky — commits will be blocked on lint errors.
 
@@ -27,14 +27,17 @@ Path alias `@/*` → `./src/*`.
 
 ### Route groups (`src/app/`)
 
-- `(external)/` — public/landing pages (no dashboard chrome)
-- `(main)/auth/v1/` and `(main)/auth/v2/` — two separate auth UIs, both exposed in the sidebar
-- `(main)/dashboard/` — the dashboard. `/dashboard` redirects to `/dashboard/default` (configured in `next.config.mjs`, not in middleware)
-- `(main)/dashboard/_components/sidebar/` — shared sidebar shell (`app-sidebar`, `nav-main`, `account-switcher`, `theme-switcher`, `layout-controls`, `search-dialog`)
+This repo is a personal toolkit (`yg_toolkit`) forked from the studio-admin template. The landing/auth scaffolding has been stripped; only the dashboard surface remains.
+
+- `(main)/dashboard/` — the only feature area. Both `/` and `/dashboard` redirect to `/dashboard/generator` (configured in `next.config.mjs`, not in middleware).
+- `(main)/dashboard/_components/sidebar/` — shared sidebar shell (`app-sidebar`, `nav-main`, `account-switcher`, `theme-switcher`, `layout-controls`, `search-dialog`).
+- `(main)/dashboard/[...not-found]/` — catch-all for unknown dashboard routes.
+
+Current tools (each is its own folder under `dashboard/`): `generator` (编号生成器), `markimg` (图片水印), `calendar` (节假日日历), `timestamp` (时间格式互转), `bgremove` (纯色背景移除, marked `comingSoon`), `wallhaven`.
 
 ### Colocation convention
 
-Each dashboard feature owns its components, schemas, and config under a `_components/` folder (the `_` prefix keeps it out of routing). Example: `dashboard/crm/_components/` holds `columns.crm.tsx`, `crm.config.ts`, `schema.ts`, plus card components. When adding a feature, follow this — do **not** scatter feature code under top-level `src/components/`. `src/components/` is reserved for cross-feature primitives (`ui/`, `data-table/`).
+Each dashboard feature owns its components, schemas, and config under a `_components/` folder (the `_` prefix keeps it out of routing). Example: `dashboard/wallhaven/_components/` holds `image-gallery.tsx`, `full-image.tsx`, `types.ts`, etc. When adding a feature, follow this — do **not** scatter feature code under top-level `src/components/`. `src/components/` is reserved for cross-feature primitives (`ui/`, `data-table/`).
 
 ### Preferences system (theme, layout, sidebar)
 
