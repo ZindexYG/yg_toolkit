@@ -4,13 +4,11 @@ import { APP_CONFIG } from "@/config/app-config";
 
 const ROUTES = [
   "/",
-  "/dashboard/default",
-  "/dashboard/crm",
-  "/dashboard/finance",
-  "/auth/v1/login",
-  "/auth/v1/register",
-  "/auth/v2/login",
-  "/auth/v2/register",
+  "/dashboard/generator",
+  "/dashboard/markimg",
+  "/dashboard/calendar",
+  "/dashboard/timestamp",
+  "/dashboard/wallhaven",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

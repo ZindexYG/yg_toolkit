@@ -1,7 +1,8 @@
 "use client";
+
 import * as React from "react";
 
-import { ChartBar, Forklift, Gauge, GraduationCap, LayoutDashboard, Search, ShoppingBag } from "lucide-react";
+import { Calendar as CalendarIcon, ImageIcon, ImageMinus, ImagePlus, Inbox, Search, Watch } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -11,20 +12,15 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-  CommandSeparator,
 } from "@/components/ui/command";
 
 const searchItems = [
-  { group: "Dashboards", icon: LayoutDashboard, label: "Default" },
-  { group: "Dashboards", icon: ChartBar, label: "CRM", disabled: true },
-  { group: "Dashboards", icon: Gauge, label: "Analytics", disabled: true },
-  { group: "Dashboards", icon: ShoppingBag, label: "E-Commerce", disabled: true },
-  { group: "Dashboards", icon: GraduationCap, label: "Academy", disabled: true },
-  { group: "Dashboards", icon: Forklift, label: "Logistics", disabled: true },
-  { group: "Authentication", label: "Login v1" },
-  { group: "Authentication", label: "Login v2" },
-  { group: "Authentication", label: "Register v1" },
-  { group: "Authentication", label: "Register v2" },
+  { group: "工具箱", icon: Inbox, label: "编号生成器" },
+  { group: "工具箱", icon: ImagePlus, label: "图片水印工具" },
+  { group: "工具箱", icon: CalendarIcon, label: "节假日日历" },
+  { group: "工具箱", icon: Watch, label: "时间格式互转" },
+  { group: "工具箱", icon: ImageMinus, label: "纯色背景移除", disabled: true },
+  { group: "工具箱", icon: ImageIcon, label: "Wallhaven" },
 ];
 
 export function SearchDialog() {
@@ -33,7 +29,7 @@ export function SearchDialog() {
     const down = (e: KeyboardEvent) => {
       if (e.key === "j" && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
-        setOpen((open) => !open);
+        setOpen((o) => !o);
       }
     };
     document.addEventListener("keydown", down);
@@ -54,23 +50,20 @@ export function SearchDialog() {
         </kbd>
       </Button>
       <CommandDialog open={open} onOpenChange={setOpen}>
-        <CommandInput placeholder="Search dashboards, users, and more…" />
+        <CommandInput placeholder="搜索工具…" />
         <CommandList>
-          <CommandEmpty>No results found.</CommandEmpty>
-          {[...new Set(searchItems.map((item) => item.group))].map((group, i) => (
-            <React.Fragment key={group}>
-              {i !== 0 && <CommandSeparator />}
-              <CommandGroup heading={group} key={group}>
-                {searchItems
-                  .filter((item) => item.group === group)
-                  .map((item) => (
-                    <CommandItem className="!py-1.5" key={item.label} onSelect={() => setOpen(false)}>
-                      {item.icon && <item.icon />}
-                      <span>{item.label}</span>
-                    </CommandItem>
-                  ))}
-              </CommandGroup>
-            </React.Fragment>
+          <CommandEmpty>未找到结果。</CommandEmpty>
+          {[...new Set(searchItems.map((item) => item.group))].map((group) => (
+            <CommandGroup heading={group} key={group}>
+              {searchItems
+                .filter((item) => item.group === group)
+                .map((item) => (
+                  <CommandItem className="!py-1.5" key={item.label} onSelect={() => setOpen(false)}>
+                    {item.icon && <item.icon />}
+                    <span>{item.label}</span>
+                  </CommandItem>
+                ))}
+            </CommandGroup>
           ))}
         </CommandList>
       </CommandDialog>
