@@ -6,6 +6,8 @@ export const APP_CONFIG = {
   name: "Studio Admin",
   version: packageJson.version,
   copyright: `© ${currentYear}, Studio Admin.`,
+  locale: "en",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   meta: {
     title: "Studio Admin - Modern Next.js Dashboard Starter Template",
     description:

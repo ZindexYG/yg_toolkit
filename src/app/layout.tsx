@@ -15,8 +15,23 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(APP_CONFIG.url),
   title: APP_CONFIG.meta.title,
   description: APP_CONFIG.meta.description,
+  applicationName: APP_CONFIG.name,
+  openGraph: {
+    type: "website",
+    siteName: APP_CONFIG.name,
+    title: APP_CONFIG.meta.title,
+    description: APP_CONFIG.meta.description,
+    url: APP_CONFIG.url,
+    locale: APP_CONFIG.locale,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: APP_CONFIG.meta.title,
+    description: APP_CONFIG.meta.description,
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
@@ -24,7 +39,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
     PREFERENCE_DEFAULTS;
   return (
     <html
-      lang="en"
+      lang={APP_CONFIG.locale}
       className={theme_mode}
       data-theme-preset={theme_preset}
       data-content-layout={content_layout}
