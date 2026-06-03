@@ -15,7 +15,7 @@ const LocaleDateOption = {
   day: "2-digit",
 } as const;
 
-export function Iso8601({ now }: { now: Date | null }) {
+export function Iso8601() {
   const [inputISO8601, setInputISO8601] = useState("");
   const [outputDateTime, setOutputDateTime] = useState<string>("");
   const [open, setOpen] = useState(false);
@@ -24,12 +24,11 @@ export function Iso8601({ now }: { now: Date | null }) {
   const [outputISO8601, setOutputISO8601] = useState<string>("");
 
   const getCurrentTimestamp = () => {
-    if (!now) return;
-    setInputISO8601(now.toISOString());
+    setInputISO8601(new Date().toISOString());
   };
 
   const getCurrentDateTime = () => {
-    if (!now) return;
+    const now = new Date();
     setDateString(now.toLocaleDateString(undefined, LocaleDateOption));
     setTimeString(now.toTimeString().split(" ")[0]);
   };

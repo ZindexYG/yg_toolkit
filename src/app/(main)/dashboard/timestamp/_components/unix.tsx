@@ -16,7 +16,7 @@ const LocaleDateOption = {
   day: "2-digit",
 } as const;
 
-export function Unix({ now }: { now: Date | null }) {
+export function Unix() {
   const [timeUnit, setTimeUnit] = useState<"seconds" | "milliseconds">("seconds");
   const [, setTimestamp] = useState<number | null>(null);
   const [inputTimestamp, setInputTimestamp] = useState("");
@@ -27,8 +27,7 @@ export function Unix({ now }: { now: Date | null }) {
   const [outputTimestamp, setOutputTimestamp] = useState<string>("");
 
   const getCurrentTimestamp = () => {
-    if (!now) return;
-    const currentTime = now.getTime();
+    const currentTime = Date.now();
     setInputTimestamp(String(timeUnit === "seconds" ? Math.floor(currentTime / 1000) : currentTime));
   };
 
@@ -60,7 +59,7 @@ export function Unix({ now }: { now: Date | null }) {
   }, [timeUnit]);
 
   const getCurrentDateTime = () => {
-    if (!now) return;
+    const now = new Date();
     const options = Object.assign({}, LocaleDateOption, {
       hour: "2-digit",
       minute: "2-digit",

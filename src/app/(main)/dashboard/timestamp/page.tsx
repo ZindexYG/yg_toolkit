@@ -1,6 +1,6 @@
 "use client";
 
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -26,35 +26,39 @@ const TABS = [
 
 const FORMAT_OPTIONS = {
   year: "numeric",
-  month: "numeric",
-  day: "numeric",
+  month: "2-digit",
+  day: "2-digit",
   weekday: "long",
   hour: "2-digit",
   minute: "2-digit",
   second: "2-digit",
 } as const;
 
-export default function TimestampPage() {
-  const [now, setNow] = useState<Date | null>(null);
-  const intervalRef = useRef<number | null>(null);
+function LiveClock() {
+  const ref = useRef<HTMLSpanElement>(null);
 
-  useLayoutEffect(() => {
-    setNow(new Date());
-    intervalRef.current = window.setInterval(() => setNow(new Date()), 1000);
-    return () => {
-      if (intervalRef.current !== null) {
-        window.clearInterval(intervalRef.current);
-        intervalRef.current = null;
-      }
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+    const update = () => {
+      node.textContent = new Date().toLocaleString("zh-CN", FORMAT_OPTIONS);
     };
+    update();
+    const id = window.setInterval(update, 1000);
+    return () => window.clearInterval(id);
   }, []);
 
-  const localeString = now ? now.toLocaleString("zh-CN", FORMAT_OPTIONS) : "";
+  return <span ref={ref} className="inline-block min-w-[22ch] tabular-nums" suppressHydrationWarning />;
+}
 
+export default function TimestampPage() {
   return (
     <Card className="flex w-full justify-center">
       <CardHeader>
-        当前时间：{localeString}
+        <div className="flex items-baseline gap-1">
+          <span>当前时间：</span>
+          <LiveClock />
+        </div>
         <Alert>
           <AlertDescription>
             <ul className="list-inside text-sm">
@@ -79,7 +83,7 @@ export default function TimestampPage() {
           </TabsList>
           {TABS.map((item) => (
             <TabsContent value={item.value} key={item.value}>
-              <item.component now={now} />
+              <item.component />
             </TabsContent>
           ))}
         </Tabs>

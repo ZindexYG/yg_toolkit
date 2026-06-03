@@ -4,6 +4,7 @@ export interface CalendarSource {
   id: string;
   label: string;
   url: string;
+  group?: string;
   backgroundColor?: string;
   textColor?: string;
   borderColor?: string;

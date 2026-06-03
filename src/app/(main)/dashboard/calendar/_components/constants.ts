@@ -2,13 +2,19 @@ import type { CalendarSource } from "./types";
 
 const dopamine = ["#ff6b6b", "#ffb56b", "#ffd56b", "#6bceff", "#6bffb3", "#d56bff"];
 
+const HOLIDAY_GROUP = "中国法定节假日";
+const HOLIDAY_YEARS = [2024, 2025, 2026] as const;
+
+const statutoryHolidaySources: CalendarSource[] = HOLIDAY_YEARS.map((year) => ({
+  id: `chinese_statutory_holidays_${year}`,
+  label: `${year}`,
+  group: HOLIDAY_GROUP,
+  url: `https://raw.githubusercontent.com/NateScarlet/holiday-cn/master/${year}.ics`,
+  backgroundColor: dopamine[0],
+}));
+
 export const CALENDAR_SOURCES: CalendarSource[] = [
-  {
-    id: "chinese_statutory_holidays",
-    label: "中国法定节假日",
-    url: "https://raw.githubusercontent.com/NateScarlet/holiday-cn/master/2025.ics",
-    backgroundColor: dopamine[0],
-  },
+  ...statutoryHolidaySources,
   {
     id: "chinese_24_solar_terms",
     label: "中国二十四节气",
